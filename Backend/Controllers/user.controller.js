@@ -33,7 +33,7 @@ export const register = async (req, res) => {
       password: hashedPassword,
       profile: {
         profilePhoto: cloudResponse.secure_url,
-      }
+      },
     });
 
     return res.status(201).json({
@@ -97,7 +97,8 @@ export const login = async (req, res) => {
       .cookie("token", token, {
         maxAge: 1 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        sameSite: "strict",
+        secure: true,
+        sameSite: "none",
       })
       .json({
         message: `welcome back ${user.fullname}`,
@@ -113,7 +114,12 @@ export const logout = (req, res) => {
   try {
     return res
       .status(200)
-      .cookie("token", "", { maxAge: 0 })
+      .cookie("token", "", {
+        maxAge: 0,
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+      })
       .json({ message: "Logged out successfully", success: true });
   } catch (error) {
     res.status(500).json({ message: "Server error" });
