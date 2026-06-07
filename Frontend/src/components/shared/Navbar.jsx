@@ -166,8 +166,10 @@ function Navbar() {
 
               {/* POPOVER */}
 
-              <PopoverContent 
-                sideOffset={10} className="w-80 rounded-2xl border border-gray-200 bg-white shadow-2xl p-5">
+              <PopoverContent
+                sideOffset={10}
+                className="w-80 rounded-2xl border border-gray-200 bg-white shadow-2xl p-5"
+              >
                 {/* USER INFO */}
 
                 <div className="flex items-center gap-4 pb-5 border-b border-gray-100">
@@ -204,14 +206,6 @@ function Navbar() {
                           <User2 className="w-5 h-5 text-emerald-600" />
 
                           <span className="font-medium">View Profile</span>
-                        </div>
-                      </Link>
-
-                      <Link to="/applied-jobs">
-                        <div className="flex items-center gap-3 hover:bg-emerald-50 px-3 py-2.5 rounded-xl transition-all duration-200 cursor-pointer">
-                          <BriefcaseBusiness className="w-5 h-5 text-emerald-600" />
-
-                          <span className="font-medium">Applied Jobs</span>
                         </div>
                       </Link>
                     </>
