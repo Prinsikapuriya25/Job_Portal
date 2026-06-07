@@ -12,7 +12,6 @@ import { USER_API_END_POINT } from "../../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../../redux/authSlice.js"; 
 import { setUser } from "../../redux/authSlice.js";
-import { useEffect } from "react";
 
 const Login = () => {
   
