@@ -19,8 +19,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: "http://localhost:5173", // Replace with your frontend URL
-  credentials: true, // Allow cookies to be sent
+  origin: [
+    "http://localhost:5173",
+    "https://job-portal.vercel.app", // હમણાં placeholder છે
+  ],
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
@@ -29,8 +32,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
-app.use("/api/v1/job",jobRoute)
-app.use("/api/v1/application",applicationRoute)
+app.use("/api/v1/job", jobRoute);
+app.use("/api/v1/application", applicationRoute);
 
 app.listen(PORT, () => {
   connectDB();
