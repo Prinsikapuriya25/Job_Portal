@@ -21,7 +21,7 @@ const Signup = () => {
     password: "",
     role: "",
     file: "",
-  });git status
+  });
 
   const navigate = useNavigate();
   const loading = useSelector((state) => state.auth.loading);
