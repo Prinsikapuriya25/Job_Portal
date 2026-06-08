@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -20,9 +20,12 @@ import {
   Home,
   LogOut,
   User2,
+  Menu,
+  X,
 } from "lucide-react";
 
 function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const { user } = useSelector((store) => store.auth);
 
   const dispatch = useDispatch();
@@ -52,7 +55,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-white sticky top-0 z-50 shadow-md">
+    <nav className="bg-white sticky top-0 z-50 shadow-md relative">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 px-4">
         {/* LOGO */}
 
@@ -66,10 +69,24 @@ function Navbar() {
 
         {/* RIGHT SECTION */}
 
-        <div className="flex items-center gap-10">
+        <div className="flex items-center gap-6">
+          {/* MOBILE TOGGLE */}
+          <div className="md:hidden">
+            <button
+              aria-label="Toggle menu"
+              onClick={() => setMobileOpen((s) => !s)}
+              className="p-2 rounded-md hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            >
+              {mobileOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
           {/* NAV LINKS */}
 
-          <ul className="flex items-center gap-5 font-medium text-gray-700">
+          <ul className="hidden md:flex items-center gap-5 font-medium text-gray-700">
             {user && user.role === "recruiter" ? (
               <>
                 <li>
@@ -128,7 +145,7 @@ function Navbar() {
           {/* AUTH SECTION */}
 
           {!user ? (
-            <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3">
               {/* LOGIN */}
 
               <Link to="/login">
@@ -248,6 +265,126 @@ function Navbar() {
             </Popover>
           )}
         </div>
+        {/* MOBILE MENU */}
+        {mobileOpen && (
+          <div className="md:hidden absolute right-4 top-16 w-64 bg-white rounded-xl shadow-lg p-4 border border-gray-100">
+            <ul className="flex flex-col gap-3 text-gray-700">
+              {user && user.role === "recruiter" ? (
+                <>
+                  <li>
+                    <Link
+                      to="/admin/companies"
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-2 py-2 rounded hover:bg-emerald-50"
+                    >
+                      Companies
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="/admin/jobs"
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-2 py-2 rounded hover:bg-emerald-50"
+                    >
+                      Jobs
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link
+                      to="/"
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-2 py-2 rounded hover:bg-emerald-50"
+                    >
+                      Home
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="/jobs"
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-2 py-2 rounded hover:bg-emerald-50"
+                    >
+                      Jobs
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      to="/browse"
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-2 py-2 rounded hover:bg-emerald-50"
+                    >
+                      Browse
+                    </Link>
+                  </li>
+                </>
+              )}
+            </ul>
+
+            <div className="mt-3">
+              {!user ? (
+                <div className="flex flex-col gap-2">
+                  <Link to="/login" onClick={() => setMobileOpen(false)}>
+                    <Button variant="outline" className="w-full">
+                      Login
+                    </Button>
+                  </Link>
+
+                  <Link to="/signup" onClick={() => setMobileOpen(false)}>
+                    <Button className="w-full bg-emerald-600">Sign Up</Button>
+                  </Link>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-2">
+                  {user.role === "student" && (
+                    <Link
+                      to="/profile"
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-2 py-2 rounded hover:bg-emerald-50"
+                    >
+                      View Profile
+                    </Link>
+                  )}
+
+                  {user.role === "recruiter" && (
+                    <>
+                      <Link
+                        to="/admin/companies"
+                        onClick={() => setMobileOpen(false)}
+                        className="block px-2 py-2 rounded hover:bg-emerald-50"
+                      >
+                        Companies
+                      </Link>
+
+                      <Link
+                        to="/admin/jobs"
+                        onClick={() => setMobileOpen(false)}
+                        className="block px-2 py-2 rounded hover:bg-emerald-50"
+                      >
+                        Admin Dashboard
+                      </Link>
+                    </>
+                  )}
+
+                  <button
+                    onClick={() => {
+                      logoutHandler();
+                      setMobileOpen(false);
+                    }}
+                    className="w-full text-left px-2 py-2 rounded hover:bg-red-50 text-red-500"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

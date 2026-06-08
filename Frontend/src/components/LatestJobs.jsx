@@ -26,27 +26,31 @@ const LatestJobs = () => {
     };
 
     fetchAllJobs();
-  }, []);
+  }, [dispatch]);
 
   return (
-    <div className="max-w-7xl mx-auto my-20 px-4">
+    <div className="max-w-7xl mx-auto my-20 px-4 sm:px-6">
       {/* HEADING */}
 
       <div className="text-center mb-14">
-        <h1 className="text-5xl font-extrabold text-gray-900">
-          Latest &<span className="text-green-600"> Top Jobs</span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900">
+          Latest & <span className="text-green-600">Top Jobs</span>
         </h1>
 
-        <p className="text-gray-500 mt-4 text-lg">
+        <p className="max-w-2xl mx-auto text-gray-500 mt-4 text-base sm:text-lg leading-relaxed">
           Explore trending jobs from top companies
         </p>
       </div>
 
       {/* JOBS */}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {allJobs?.length <= 0 ? (
-          <span>No Jobs Available</span>
+          <div className="col-span-full py-20 text-center">
+            <span className="text-xl sm:text-2xl font-semibold text-gray-500">
+              No Jobs Available
+            </span>
+          </div>
         ) : (
           allJobs
             ?.slice(0, 6)

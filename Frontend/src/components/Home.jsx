@@ -19,10 +19,10 @@ function Home() {
     if (user?.role === "recruiter") {
       navigate("/admin/companies");
     }
-  }, [user]);
+  }, [user, navigate]);
 
   return (
-    <div>
+    <div className="min-h-screen">
       <Navbar />
 
       <HeroSection />

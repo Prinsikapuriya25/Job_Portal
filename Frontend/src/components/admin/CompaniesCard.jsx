@@ -15,7 +15,7 @@ import { COMPANY_API_END_POINT } from "@/utils/constant";
 import { useSelector } from "react-redux";
 
 const CompaniesCard = ({ company }) => {
-  const {companies} = useSelector(store => store.company);
+  const { companies } = useSelector((store) => store.company);
   const navigate = useNavigate();
 
   // DELETE COMPANY
@@ -41,8 +41,8 @@ const CompaniesCard = ({ company }) => {
   return (
     <div className="bg-white rounded-[2rem] border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
       {/* TOP */}
-      <div className="h-28 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 relative">
-        <div className="absolute -bottom-10 left-6 w-24 h-24 bg-white rounded-3xl shadow-xl flex items-center justify-center p-4 border-4 border-white overflow-hidden">
+      <div className="h-24 sm:h-28 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 relative">
+        <div className="absolute -bottom-8 sm:-bottom-10 left-4 sm:left-6 w-16 h-16 sm:w-24 sm:h-24 bg-white rounded-3xl shadow-xl flex items-center justify-center p-3 sm:p-4 border-4 border-white overflow-hidden">
           {/* LOGO */}
           {company?.logo ? (
             <img
@@ -57,10 +57,10 @@ const CompaniesCard = ({ company }) => {
       </div>
 
       {/* CONTENT */}
-      <div className="pt-16 px-6 pb-6">
+      <div className="pt-14 sm:pt-16 px-4 sm:px-6 pb-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-lg sm:text-2xl font-bold text-gray-900 truncate">
               {company?.name}
             </h1>
 
@@ -74,7 +74,7 @@ const CompaniesCard = ({ company }) => {
         </div>
 
         {/* WEBSITE */}
-        <div className="mt-5 flex items-center gap-2 text-sm text-gray-600 break-all">
+        <div className="mt-5 flex items-center gap-2 text-sm text-gray-600 break-words max-w-full">
           <Globe className="w-4 h-4 text-green-600" />
 
           {company?.website ? (
@@ -82,7 +82,7 @@ const CompaniesCard = ({ company }) => {
               href={company.website}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-green-600"
+              className="hover:text-green-600 truncate block max-w-[160px] sm:max-w-[220px] md:max-w-[300px]"
             >
               {company.website}
             </a>
@@ -101,11 +101,11 @@ const CompaniesCard = ({ company }) => {
         </div>
 
         {/* ACTIONS */}
-        <div className="flex items-center gap-3 mt-7">
+        <div className="flex flex-col sm:flex-row items-center gap-3 mt-6">
           {/* EDIT BUTTON */}
           <Button
             variant="outline"
-            className="flex-1 rounded-2xl border-gray-300 hover:border-green-600 hover:text-green-600"
+            className="w-full sm:flex-1 sm:w-auto rounded-2xl border-gray-300 hover:border-green-600 hover:text-green-600"
             onClick={() => navigate(`/admin/companies/${company._id}`)}
           >
             <Pencil className="w-4 h-4 mr-2" />
@@ -116,7 +116,7 @@ const CompaniesCard = ({ company }) => {
           <Button
             variant="outline"
             onClick={deleteCompanyHandler}
-            className="rounded-2xl border-red-200 text-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 transition-all duration-300"
+            className="w-full sm:w-auto rounded-2xl border-red-200 text-red-500 hover:bg-red-500 hover:text-white hover:border-red-500 transition-all duration-300"
           >
             <Trash2 className="w-4 h-4" />
           </Button>

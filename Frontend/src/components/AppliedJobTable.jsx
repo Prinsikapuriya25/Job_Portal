@@ -48,78 +48,137 @@ const AppliedJobTable = () => {
           </p>
         </div>
       ) : (
-        <Table>
-          <TableHeader>
-            <TableRow className="bg-gray-50 hover:bg-gray-50">
-              <TableHead className="font-semibold text-gray-700">
-                Date
-              </TableHead>
+        <>
+          <div className="space-y-4 md:hidden px-4 pt-4">
+            {allAppliedJobs?.map((appliedJob) => {
+              const status = appliedJob?.status?.toLowerCase();
+              return (
+                <div
+                  key={appliedJob._id}
+                  className="bg-gray-50 rounded-[1.5rem] p-4 shadow-sm border border-gray-100"
+                >
+                  <div className="flex items-center justify-between gap-3 text-gray-700">
+                    <div className="flex items-center gap-2">
+                      <CalendarDays className="w-4 h-4 text-green-600" />
+                      <span className="text-sm font-medium">
+                        {appliedJob?.createdAt?.split("T")[0]}
+                      </span>
+                    </div>
 
-              <TableHead className="font-semibold text-gray-700">
-                Job Role
-              </TableHead>
-
-              <TableHead className="font-semibold text-gray-700">
-                Company
-              </TableHead>
-
-              <TableHead className="text-right font-semibold text-gray-700">
-                Status
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-
-          <TableBody>
-            {allAppliedJobs?.map((appliedJob) => (
-              <TableRow
-                key={appliedJob._id}
-                className="hover:bg-green-50 transition-all duration-300"
-              >
-                <TableCell>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <CalendarDays className="w-4 h-4 text-green-600" />
-                    {appliedJob?.createdAt?.split("T")[0]}
+                    <Badge
+                      className={`px-3 py-1.5 rounded-full text-white text-[11px] font-semibold ${
+                        status === "rejected"
+                          ? "bg-red-500"
+                          : status === "pending"
+                            ? "bg-yellow-500"
+                            : "bg-green-500"
+                      }`}
+                    >
+                      {status?.toUpperCase()}
+                    </Badge>
                   </div>
-                </TableCell>
 
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <Briefcase className="w-4 h-4 text-green-600" />
-                    <span className="font-semibold text-gray-900">
-                      {appliedJob?.job?.title}
-                    </span>
+                  <div className="mt-4 space-y-3">
+                    <div className="flex items-center gap-2 text-gray-700">
+                      <Briefcase className="w-4 h-4 text-green-600" />
+                      <div>
+                        <p className="text-sm text-gray-500">Job Role</p>
+                        <p className="font-semibold text-gray-900">
+                          {appliedJob?.job?.title}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-gray-700">
+                      <Building2 className="w-4 h-4 text-green-600" />
+                      <div>
+                        <p className="text-sm text-gray-500">Company</p>
+                        <p className="font-semibold text-gray-900">
+                          {appliedJob?.job?.company?.name}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </TableCell>
+                </div>
+              );
+            })}
+          </div>
 
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <Building2 className="w-4 h-4 text-green-600" />
-                    <span className="text-gray-700">
-                      {appliedJob?.job?.company?.name}
-                    </span>
-                  </div>
-                </TableCell>
+          <div className="hidden md:block">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-gray-50 hover:bg-gray-50">
+                  <TableHead className="font-semibold text-gray-700">
+                    Date
+                  </TableHead>
 
-                <TableCell className="text-right">
-                  <Badge
-                    className={`
-                px-4 py-2 rounded-full text-white font-medium
-                ${
-                  appliedJob?.status === "rejected"
-                    ? "bg-red-500"
-                    : appliedJob?.status === "pending"
-                      ? "bg-yellow-500"
-                      : "bg-green-500"
-                }
-              `}
-                  >
-                    {appliedJob?.status?.toUpperCase()}
-                  </Badge>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+                  <TableHead className="font-semibold text-gray-700">
+                    Job Role
+                  </TableHead>
+
+                  <TableHead className="font-semibold text-gray-700">
+                    Company
+                  </TableHead>
+
+                  <TableHead className="text-right font-semibold text-gray-700">
+                    Status
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+
+              <TableBody>
+                {allAppliedJobs?.map((appliedJob) => {
+                  const status = appliedJob?.status?.toLowerCase();
+                  return (
+                    <TableRow
+                      key={appliedJob._id}
+                      className="hover:bg-green-50 transition-all duration-300"
+                    >
+                      <TableCell>
+                        <div className="flex items-center gap-2 text-gray-700">
+                          <CalendarDays className="w-4 h-4 text-green-600" />
+                          {appliedJob?.createdAt?.split("T")[0]}
+                        </div>
+                      </TableCell>
+
+                      <TableCell>
+                        <div className="flex items-center gap-2">
+                          <Briefcase className="w-4 h-4 text-green-600" />
+                          <span className="font-semibold text-gray-900">
+                            {appliedJob?.job?.title}
+                          </span>
+                        </div>
+                      </TableCell>
+
+                      <TableCell>
+                        <div className="flex items-center gap-2">
+                          <Building2 className="w-4 h-4 text-green-600" />
+                          <span className="text-gray-700">
+                            {appliedJob?.job?.company?.name}
+                          </span>
+                        </div>
+                      </TableCell>
+
+                      <TableCell className="text-right">
+                        <Badge
+                          className={`px-4 py-2 rounded-full text-white font-medium ${
+                            status === "rejected"
+                              ? "bg-red-500"
+                              : status === "pending"
+                                ? "bg-yellow-500"
+                                : "bg-green-500"
+                          }`}
+                        >
+                          {status?.toUpperCase()}
+                        </Badge>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </div>
+        </>
       )}
     </div>
   );

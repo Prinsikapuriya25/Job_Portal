@@ -80,22 +80,24 @@ const CreateJob = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50">
-      <div className="max-w-5xl mx-auto py-10 px-4">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10">
         <div className="bg-white rounded-[2.5rem] shadow-2xl border border-gray-100 overflow-hidden">
           {/* HEADER */}
 
-          <div className="bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 px-10 py-10">
-            <h1 className="text-4xl font-extrabold text-white">Create Job</h1>
+          <div className="bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10">
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-white">
+              Create Job
+            </h1>
 
-            <p className="text-green-100 mt-2">
+            <p className="text-green-100 mt-2 text-sm sm:text-base">
               Create and publish a new job posting
             </p>
           </div>
 
           {/* FORM */}
 
-          <form onSubmit={submitHandler} className="p-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <form onSubmit={submitHandler} className="p-6 sm:p-8 md:p-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               <div className="space-y-2">
                 <label className="font-semibold text-gray-700">Job Title</label>
 
@@ -218,20 +220,20 @@ const CreateJob = () => {
                 </label>
 
                 <textarea
-                  rows={6}
+                  rows={5}
                   name="description"
                   value={input.description}
                   onChange={changeHandler}
                   placeholder="Write job description..."
-                  className="w-full rounded-3xl border border-gray-200 p-5 resize-none outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full rounded-3xl border border-gray-200 p-4 sm:p-5 resize-none outline-none focus:ring-2 focus:ring-green-500"
                 />
               </div>
             </div>
 
-            <div className="flex justify-end mt-10">
+            <div className="flex justify-end mt-6 sm:mt-10">
               <button
                 type="submit"
-                className="bg-green-600 hover:bg-green-700 text-white px-10 py-3 rounded-2xl font-semibold shadow-lg"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-10 py-3 rounded-2xl font-semibold shadow-lg"
               >
                 Create Job
               </button>

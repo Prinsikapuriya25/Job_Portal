@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 import { Search, Loader2 } from "lucide-react";
 
 const Jobs = () => {
-  
   const { allJobs, searchedQuery } = useSelector((store) => store.job);
 
   const [filterJobs, setFilterJobs] = useState([]);
@@ -110,11 +109,19 @@ const Jobs = () => {
 
       {/* MAIN CONTENT */}
 
-      <div className="max-w-7xl mx-auto mt-6 px-4">
-        <div className="flex gap-6">
+      <div className="max-w-7xl mx-auto mt-6 px-4 sm:px-6">
+        <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
+          {/* MOBILE FILTER SECTION */}
+
+          <div className="block lg:hidden">
+            <div className="bg-white border border-gray-100 rounded-3xl shadow-sm p-4">
+              <FilterCard />
+            </div>
+          </div>
+
           {/* FILTER SECTION */}
 
-          <div className="w-[25%] hidden lg:block">
+          <div className="hidden lg:block">
             <div className="sticky top-24">
               <FilterCard />
             </div>
@@ -122,9 +129,9 @@ const Jobs = () => {
 
           {/* JOBS SECTION */}
 
-          <div className="flex-1 h-[85vh] overflow-y-auto pb-5">
+          <div className="flex-1 min-h-[70vh] lg:max-h-[85vh] overflow-y-auto pb-8">
             {loading ? (
-              <div className="flex flex-col items-center justify-center h-[70vh]">
+              <div className="flex flex-col items-center justify-center min-h-[60vh]">
                 <Loader2 className="w-14 h-14 text-green-600 animate-spin" />
 
                 <p className="mt-4 text-lg font-semibold text-gray-600">
@@ -132,7 +139,7 @@ const Jobs = () => {
                 </p>
               </div>
             ) : filterJobs.length <= 0 ? (
-              <div className="flex items-center justify-center h-full">
+              <div className="flex items-center justify-center min-h-[60vh]">
                 <span className="text-2xl font-semibold text-gray-500">
                   Job not found
                 </span>

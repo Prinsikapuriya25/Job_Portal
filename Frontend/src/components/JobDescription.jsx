@@ -26,16 +26,6 @@ const JobDescription = () => {
   const { singleJob } = useSelector((store) => store.job);
   const { user } = useSelector((store) => store.auth);
 
-  // CHECK USER APPLIED OR NOT
-
-  // CHECK USER APPLIED OR NOT
-
-  const isIntiallyApplied =
-    singleJob?.applicants?.some(
-      (application) =>
-        application?.applicant?.toString() === user?._id?.toString(),
-    ) || false;
-
   const [isApplied, setIsApplied] = React.useState(false);
 
   useEffect(() => {
@@ -118,28 +108,28 @@ const JobDescription = () => {
     };
 
     fetchSingleJob();
-  }, [jobId, dispatch]);
+  }, [jobId, dispatch, user]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50">
       <Navbar />
 
-      <div className="max-w-6xl mx-auto px-4 py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
         {/* MAIN CARD */}
 
         <div className="bg-white border border-gray-100 shadow-2xl rounded-[2.5rem] overflow-hidden">
           {/* TOP BANNER */}
 
-          <div className="h-56 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 relative">
+          <div className="h-44 sm:h-52 md:h-56 bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 relative">
             <div className="absolute inset-0 bg-black/10"></div>
           </div>
 
           {/* CONTENT */}
 
-          <div className="px-10 pb-10 relative">
+          <div className="px-5 sm:px-8 lg:px-10 pb-10 relative">
             {/* COMPANY + JOB */}
 
-            <div className="relative -mt-20 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+            <div className="relative -mt-20 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               {/* LEFT */}
 
               <div className="flex flex-col lg:flex-row items-center lg:items-end gap-6">
@@ -160,15 +150,15 @@ const JobDescription = () => {
                 {/* INFO */}
 
                 <div className="text-center lg:text-left">
-                  <h1 className="text-4xl lg:text-6xl font-black text-gray-900 leading-tight">
+                  <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-gray-900 leading-tight">
                     {singleJob?.title}
                   </h1>
 
-                  <p className="text-xl font-semibold text-green-600 mt-2">
+                  <p className="text-lg sm:text-xl font-semibold text-green-600 mt-2">
                     {singleJob?.company?.name}
                   </p>
 
-                  <div className="flex flex-wrap justify-center lg:justify-start gap-5 mt-4 text-gray-600">
+                  <div className="flex flex-wrap justify-center lg:justify-start gap-4 mt-4 text-gray-600 text-sm sm:text-base">
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4 text-green-600" />
                       {singleJob?.location}
@@ -185,9 +175,9 @@ const JobDescription = () => {
               {/* APPLY BUTTON */}
 
               <Button
-                onClick={isApplied ? null : applyJobHandler}
+                onClick={isApplied ? undefined : applyJobHandler}
                 disabled={isApplied}
-                className={`rounded-2xl px-10 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300 ${
+                className={`w-full lg:w-auto rounded-2xl px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300 ${
                   isApplied
                     ? "bg-gray-400 cursor-not-allowed"
                     : "bg-green-600 hover:bg-green-700"
@@ -200,22 +190,22 @@ const JobDescription = () => {
             {/* ABOUT JOB */}
 
             <div className="mt-14">
-              <h1 className="text-3xl font-bold text-gray-900 mb-6">
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
                 Job Description
               </h1>
 
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                 {singleJob?.description}
               </p>
             </div>
 
             {/* JOB DETAILS */}
 
-            <div className="grid md:grid-cols-2 gap-6 mt-14">
+            <div className="grid grid-cols-1 gap-6 mt-14 md:grid-cols-2">
               {/* EXPERIENCE */}
 
-              <div className="bg-green-50 border border-green-100 rounded-3xl p-6">
-                <div className="flex items-center gap-4">
+              <div className="bg-green-50 border border-green-100 rounded-3xl p-5 sm:p-6">
+                <div className="flex items-start gap-4 sm:items-center">
                   <div className="w-14 h-14 rounded-2xl bg-white shadow flex items-center justify-center">
                     <BriefcaseBusiness className="text-green-600" />
                   </div>
@@ -232,8 +222,8 @@ const JobDescription = () => {
 
               {/* SALARY */}
 
-              <div className="bg-green-50 border border-green-100 rounded-3xl p-6">
-                <div className="flex items-center gap-4">
+              <div className="bg-green-50 border border-green-100 rounded-3xl p-5 sm:p-6">
+                <div className="flex items-start gap-4 sm:items-center">
                   <div className="w-14 h-14 rounded-2xl bg-white shadow flex items-center justify-center">
                     <IndianRupee className="text-green-600" />
                   </div>
@@ -250,8 +240,8 @@ const JobDescription = () => {
 
               {/* APPLICANTS */}
 
-              <div className="bg-green-50 border border-green-100 rounded-3xl p-6">
-                <div className="flex items-center gap-4">
+              <div className="bg-green-50 border border-green-100 rounded-3xl p-5 sm:p-6">
+                <div className="flex items-start gap-4 sm:items-center">
                   <div className="w-14 h-14 rounded-2xl bg-white shadow flex items-center justify-center">
                     <Users className="text-green-600" />
                   </div>
@@ -268,8 +258,8 @@ const JobDescription = () => {
 
               {/* POSTED DATE */}
 
-              <div className="bg-green-50 border border-green-100 rounded-3xl p-6">
-                <div className="flex items-center gap-4">
+              <div className="bg-green-50 border border-green-100 rounded-3xl p-5 sm:p-6">
+                <div className="flex items-start gap-4 sm:items-center">
                   <div className="w-14 h-14 rounded-2xl bg-white shadow flex items-center justify-center">
                     <Clock3 className="text-green-600" />
                   </div>

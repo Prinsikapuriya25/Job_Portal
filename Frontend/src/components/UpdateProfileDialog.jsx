@@ -41,7 +41,6 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     file: user?.profile?.resume,
   });
 
-  
   const changeEventHandler = (e) => {
     setInput({
       ...input,
@@ -105,10 +104,10 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
   return (
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="!max-w-[800px] w-[95vw] border-0 bg-white shadow-[0_20px_80px_rgba(0,0,0,0.18)] rounded-[32px] p-10 overflow-hidden">
+        <DialogContent className="!max-w-[800px] w-[95vw] sm:w-[85vw] border-0 bg-white shadow-[0_20px_80px_rgba(0,0,0,0.18)] rounded-[32px] p-6 sm:p-10 overflow-hidden">
           {/* HEADER */}
 
-          <div className="text-center bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 px-12 py-5 rounded-[20px]">
+          <div className="text-center bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 px-6 py-4 sm:px-12 sm:py-5 rounded-[20px]">
             <DialogHeader>
               <DialogTitle className="text-4xl font-bold text-white">
                 Update Profile
@@ -123,7 +122,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
           {/* FORM */}
 
           <form className="px-4 py-3" onSubmit={submitHandler}>
-            <div className="grid grid-cols-2 gap-10 mt-5 py-3">
+            <div className="grid grid-cols-1 gap-6 mt-5 py-3 sm:grid-cols-2">
               {/* LEFT */}
 
               <div className="space-y-5">
@@ -252,12 +251,12 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
             {/* FOOTER */}
 
             <DialogFooter>
-              <div className="flex items-center justify-end gap-4 mt-8 w-full">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-4 mt-8 w-full">
                 <Button
                   type="button"
                   onClick={() => setOpen(false)}
                   variant="outline"
-                  className="h-11 px-8 rounded-2xl border-gray-300 hover:border-red-400 hover:text-red-500"
+                  className="w-full sm:w-auto h-11 px-8 rounded-2xl border-gray-300 hover:border-red-400 hover:text-red-500"
                 >
                   Cancel
                 </Button>
@@ -265,7 +264,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                 {loading ? (
                   <Button
                     disabled
-                    className="h-11 px-8 rounded-2xl bg-green-600 hover:bg-green-700"
+                    className="w-full sm:w-auto h-11 px-8 rounded-2xl bg-green-600 hover:bg-green-700"
                   >
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     Updating...
@@ -273,7 +272,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                 ) : (
                   <Button
                     type="submit"
-                    className="h-11 px-8 rounded-2xl bg-green-600 hover:bg-green-700 shadow-lg"
+                    className="w-full sm:w-auto h-11 px-8 rounded-2xl bg-green-600 hover:bg-green-700 shadow-lg"
                   >
                     Save Changes
                   </Button>

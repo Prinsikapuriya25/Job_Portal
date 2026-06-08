@@ -73,33 +73,32 @@ const Signup = () => {
     } catch (error) {
       console.log(error);
       toast.error(error.response?.data?.message);
-    }
-    finally {
-          dispatch(setLoading(false));
+    } finally {
+      dispatch(setLoading(false));
     }
   };
 
   const user = useSelector((state) => state.auth.user);
-  
-    useEffect(() => {
-      if(user){
-        navigate("/")
-      }
-    })
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-emerald-200">
       <Navbar />
 
-      <div className="flex items-center justify-center px-4 py-10">
+      <div className="flex items-center justify-center px-4 py-8 sm:py-10">
         <form
           onSubmit={submitHandler}
-          className="w-full max-w-2xl bg-white border border-green-100 shadow-2xl rounded-3xl p-8"
+          className="w-full max-w-2xl bg-white border border-green-100 shadow-2xl rounded-3xl p-6 sm:p-8"
         >
           {/* HEADING */}
 
-          <div className="mb-8 text-center">
-            <h1 className="text-4xl font-extrabold text-gray-800 tracking-tight">
+          <div className="mb-6 text-center">
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-gray-800 tracking-tight">
               Create Account
             </h1>
 
@@ -173,10 +172,10 @@ const Signup = () => {
           <div className="mb-6">
             <Label className="text-gray-700 font-medium">Register As</Label>
 
-            <RadioGroup className="flex items-center gap-4 mt-3">
+            <RadioGroup className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mt-3">
               {/* STUDENT */}
 
-              <div className="flex items-center gap-2 bg-green-50 px-4 py-3 rounded-2xl border border-green-200 hover:border-green-500 transition-all duration-300">
+              <div className="flex items-center justify-between sm:justify-start gap-2 bg-green-50 px-4 py-3 rounded-2xl border border-green-200 hover:border-green-500 transition-all duration-300 w-full sm:w-auto">
                 <Input
                   type="radio"
                   name="role"
@@ -191,7 +190,7 @@ const Signup = () => {
 
               {/* RECRUITER */}
 
-              <div className="flex items-center gap-2 bg-green-50 px-4 py-3 rounded-2xl border border-green-200 hover:border-green-500 transition-all duration-300">
+              <div className="flex items-center justify-between sm:justify-start gap-2 bg-green-50 px-4 py-3 rounded-2xl border border-green-200 hover:border-green-500 transition-all duration-300 w-full sm:w-auto">
                 <Input
                   type="radio"
                   name="role"
@@ -215,7 +214,7 @@ const Signup = () => {
               accept="image/*"
               type="file"
               onChange={changeFileHandler}
-              className="mt-2 rounded-2xl h-12 border-gray-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-green-500"
+              className="mt-2 rounded-2xl h-12 border-gray-300 cursor-pointer focus-visible:ring-2 focus-visible:ring-green-500 w-full"
             />
           </div>
 

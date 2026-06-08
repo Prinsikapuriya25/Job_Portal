@@ -45,21 +45,22 @@ const FilterCard = () => {
   };
 
   useEffect(() => {
-    
     dispatch(setSearchedQuery(selectedValue));
   }, [selectedValue, dispatch]);
 
   return (
-    <div className="w-full bg-white border border-gray-100 shadow-xl rounded-3xl p-6">
+    <div className="w-full bg-white border border-gray-100 shadow-xl rounded-3xl p-4 sm:p-6">
       {/* HEADER */}
 
-      <div className="flex items-center justify-between mb-5">
-        <h1 className="font-bold text-2xl text-gray-900">Filter Jobs</h1>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5">
+        <h1 className="font-bold text-xl sm:text-2xl text-gray-900">
+          Filter Jobs
+        </h1>
 
         {selectedValue && (
           <button
             onClick={clearFilter}
-            className="flex items-center gap-1 text-red-500 text-sm font-medium hover:text-red-600"
+            className="inline-flex items-center gap-1 text-red-500 text-sm font-medium hover:text-red-600"
           >
             <X className="w-4 h-4" />
             Clear
@@ -67,15 +68,15 @@ const FilterCard = () => {
         )}
       </div>
 
-      <hr className="mb-6" />
+      <hr className="mb-5" />
 
       <RadioGroup value={selectedValue} onValueChange={changeHandler}>
         {filterData.map((data, index) => (
-          <div key={index} className="mb-8">
+          <div key={index} className="mb-6 last:mb-0">
             <div className="flex items-center gap-2 mb-4">
               {data.icon}
 
-              <h2 className="font-semibold text-lg text-gray-800">
+              <h2 className="font-semibold text-base sm:text-lg text-gray-800">
                 {data.filterType}
               </h2>
             </div>
@@ -85,19 +86,17 @@ const FilterCard = () => {
                 const itemId = `${index}-${idx}`;
 
                 return (
-                  <div
+                  <label
                     key={itemId}
-                    className="flex items-center gap-3 bg-gray-50 hover:bg-green-50 px-3 py-2 rounded-xl transition-all cursor-pointer"
+                    htmlFor={itemId}
+                    className="flex items-center gap-3 bg-gray-50 hover:bg-green-50 px-3 py-3 rounded-2xl transition-all duration-200 cursor-pointer"
                   >
                     <RadioGroupItem value={item} id={itemId} />
 
-                    <Label
-                      htmlFor={itemId}
-                      className="cursor-pointer text-sm font-medium w-full"
-                    >
+                    <span className="text-sm sm:text-base font-medium text-gray-800 truncate">
                       {item}
-                    </Label>
-                  </div>
+                    </span>
+                  </label>
                 );
               })}
             </div>

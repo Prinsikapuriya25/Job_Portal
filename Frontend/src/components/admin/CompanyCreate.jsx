@@ -116,7 +116,7 @@ const CompanyCreate = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50">
       <Navbar />
 
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10">
         {/* BACK BUTTON */}
 
         <Button
@@ -133,18 +133,18 @@ const CompanyCreate = () => {
         <div className="bg-white rounded-[2.5rem] shadow-2xl border border-gray-100 overflow-hidden">
           {/* TOP SECTION */}
 
-          <div className="bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 px-10 py-10">
-            <div className="flex items-center gap-5">
-              <div className="w-20 h-20 rounded-3xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
-                <Building2 className="w-10 h-10 text-white" />
+          <div className="bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500 px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
+                <Building2 className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
 
               <div>
-                <h1 className="text-4xl font-extrabold text-white">
+                <h1 className="text-2xl sm:text-4xl font-extrabold text-white">
                   Create Company
                 </h1>
 
-                <p className="text-green-100 mt-2 text-lg">
+                <p className="text-green-100 mt-2 text-sm sm:text-lg">
                   Add your company information professionally
                 </p>
               </div>
@@ -153,8 +153,8 @@ const CompanyCreate = () => {
 
           {/* FORM */}
 
-          <form onSubmit={registerNewCompany} className="p-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <form onSubmit={registerNewCompany} className="p-6 sm:p-8 md:p-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               {/* COMPANY NAME */}
 
               <div className="space-y-3">
@@ -169,7 +169,7 @@ const CompanyCreate = () => {
                   value={companyData.name}
                   onChange={changeHandler}
                   placeholder="Enter company name"
-                  className="rounded-2xl h-12"
+                  className="rounded-2xl h-12 w-full"
                 />
               </div>
 
@@ -187,7 +187,7 @@ const CompanyCreate = () => {
                   value={companyData.website}
                   onChange={changeHandler}
                   placeholder="www.company.com"
-                  className="rounded-2xl h-12"
+                  className="rounded-2xl h-12 w-full"
                 />
               </div>
 
@@ -205,7 +205,7 @@ const CompanyCreate = () => {
                   value={companyData.location}
                   onChange={changeHandler}
                   placeholder="Enter location"
-                  className="rounded-2xl h-12"
+                  className="rounded-2xl h-12 w-full"
                 />
               </div>
 
@@ -221,7 +221,7 @@ const CompanyCreate = () => {
                   type="file"
                   accept="image/*"
                   onChange={fileHandler}
-                  className="rounded-2xl h-12 cursor-pointer"
+                  className="rounded-2xl h-12 cursor-pointer w-full"
                 />
               </div>
             </div>
@@ -235,23 +235,22 @@ const CompanyCreate = () => {
               </label>
 
               <textarea
-                rows={6}
+                rows={5}
                 name="description"
                 value={companyData.description}
                 onChange={changeHandler}
                 placeholder="Write something about your company..."
-                className="w-full rounded-3xl border border-gray-200 p-5 resize-none outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full rounded-3xl border border-gray-200 p-4 sm:p-5 resize-none outline-none focus:ring-2 focus:ring-green-500"
               />
             </div>
 
             {/* BUTTONS */}
-
-            <div className="flex items-center justify-end gap-4 mt-10">
+            <div className="flex flex-col sm:flex-row items-center sm:justify-end gap-3 mt-6 sm:mt-10">
               <Button
                 onClick={() => navigate("/admin/companies")}
                 type="button"
                 variant="outline"
-                className="rounded-2xl px-8"
+                className="w-full sm:w-auto rounded-2xl px-4 py-3"
               >
                 Cancel
               </Button>
@@ -259,7 +258,7 @@ const CompanyCreate = () => {
               {loading ? (
                 <Button
                   disabled
-                  className="bg-green-600 rounded-2xl px-10 py-6"
+                  className="w-full sm:w-auto bg-green-600 rounded-2xl px-6 py-3"
                 >
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                   Creating...
@@ -267,7 +266,7 @@ const CompanyCreate = () => {
               ) : (
                 <Button
                   type="submit"
-                  className="bg-green-600 hover:bg-green-700 rounded-2xl px-10 py-6 shadow-lg hover:shadow-2xl transition-all duration-300"
+                  className="w-full sm:w-auto bg-green-600 hover:bg-green-700 rounded-2xl px-6 py-3 shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
                   Create Company
                 </Button>
