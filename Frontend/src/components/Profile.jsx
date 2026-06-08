@@ -259,7 +259,7 @@ const Profile = () => {
                     onClick={() => window.open(user?.profile?.resume, "_blank")}
                   >
                     <Download className="mr-2 w-5 h-5" />
-                    Download Resume
+                    View Resume
                   </Button>
                 )}
               </div>

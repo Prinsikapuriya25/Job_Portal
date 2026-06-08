@@ -206,15 +206,12 @@ const ApplicantsTable = ({ applications, loading, onStatusChange }) => {
                   {application?.applicant?.profile?.resume ? (
                     <a
                       href={application?.applicant?.profile?.resume}
-                      download={
-                        application?.applicant?.profile?.resumeOriginalName
-                      }
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-green-100 text-green-700 font-semibold hover:bg-green-200 transition-all text-sm"
                     >
                       <FileText className="w-4 h-4" />
-                      Resume
+                      View Resume
                     </a>
                   ) : (
                     <span className="text-gray-400 text-sm">No Resume</span>
@@ -286,9 +283,6 @@ const ApplicantsTable = ({ applications, loading, onStatusChange }) => {
                 {application?.applicant?.profile?.resume ? (
                   <a
                     href={application?.applicant?.profile?.resume}
-                    download={
-                      application?.applicant?.profile?.resumeOriginalName
-                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-green-100 text-green-700 font-semibold hover:bg-green-200 transition-all"
