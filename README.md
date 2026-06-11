@@ -1,5 +1,5 @@
-<div align="center>
-
+<div align="center">
+  
 # 🚀 CareerConnect
 
 ### Full-Stack Job Portal & Recruitment Platform
@@ -37,7 +37,7 @@
 ## 🎯 Overview
 
 CareerConnect is a full-stack MERN Job Portal built with React.js, Node.js, Express.js, MongoDB, JWT Authentication, and Cloudinary. The platform enables recruiters to post and manage jobs while allowing job seekers to search opportunities, upload resumes, apply for positions, and track application status through a secure and responsive interface.
-
+</div>
 ---
 
 ## 🌐 Live Demo
