@@ -1,14 +1,42 @@
+<div align="center>
+
 # 🚀 CareerConnect
 
 ### Full-Stack Job Portal & Recruitment Platform
 
+<p align="center">
+
 [![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://job-portal-rose-pi.vercel.app/)
 [![Backend API](https://img.shields.io/badge/Backend-API-blue?style=for-the-badge)](https://job-portal-backend-ob5t.onrender.com)
-[![React](https://img.shields.io/badge/React.js-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)]()
-[![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge&logo=node.js&logoColor=white)]()
-[![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white)]()
 
-A modern MERN Stack Job Portal connecting Job Seekers and Recruiters through a secure and scalable recruitment platform. CareerConnect streamlines the hiring process with role-based access control, job management, application tracking, resume uploads, and cloud-based file storage.
+</p>
+
+<p align="center">
+
+![React](https://img.shields.io/badge/React.js-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-Authentication-orange?style=for-the-badge&logo=jsonwebtokens)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-Media_Storage-3448C5?style=for-the-badge&logo=cloudinary)
+
+</p>
+
+<p align="center">
+
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+![MERN Stack](https://img.shields.io/badge/MERN-FullStack-green?style=for-the-badge)
+![RBAC](https://img.shields.io/badge/RBAC-Implemented-blue?style=for-the-badge)
+![Responsive](https://img.shields.io/badge/Responsive-Yes-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
+</p>
+
+---
+
+## 🎯 Overview
+
+CareerConnect is a full-stack MERN Job Portal built with React.js, Node.js, Express.js, MongoDB, JWT Authentication, and Cloudinary. The platform enables recruiters to post and manage jobs while allowing job seekers to search opportunities, upload resumes, apply for positions, and track application status through a secure and responsive interface.
 
 ---
 
@@ -220,3 +248,4 @@ npm run dev
 ---
 
 ### Made with ❤️ using React.js, Node.js, Express.js & MongoDB
+</p>
