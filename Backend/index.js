@@ -32,6 +32,16 @@ app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    project: "CareerConnect",
+    message: "Backend API Running 🚀",
+    frontend: "https://job-portal-rose-pi.vercel.app",
+    version: "1.0.0",
+  });
+});
+
 app.listen(PORT, () => {
   connectDB();
   console.log(`Server is running on port ${PORT}`);
