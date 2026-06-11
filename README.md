@@ -2,35 +2,43 @@
 
 ### Full-Stack Job Portal & Recruitment Platform
 
-CareerConnect is a modern MERN Stack Job Portal designed to connect Job Seekers and Recruiters through a secure, scalable, and user-friendly recruitment platform. The application provides role-based access control, job management, application tracking, resume uploads, company profile management, and cloud-based file storage.
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://job-portal-rose-pi.vercel.app/)
+[![Backend API](https://img.shields.io/badge/Backend-API-blue?style=for-the-badge)](https://job-portal-backend-ob5t.onrender.com)
+[![React](https://img.shields.io/badge/React.js-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)]()
+[![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge&logo=node.js&logoColor=white)]()
+[![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white)]()
+
+A modern MERN Stack Job Portal connecting Job Seekers and Recruiters through a secure and scalable recruitment platform. CareerConnect streamlines the hiring process with role-based access control, job management, application tracking, resume uploads, and cloud-based file storage.
 
 ---
 
-## 🌟 Overview
+## 🌐 Live Demo
 
-CareerConnect streamlines the hiring process by enabling recruiters to post and manage jobs while allowing candidates to search, apply, and track applications through an intuitive dashboard.
+| Platform | Link |
+|----------|------|
+| 🚀 Frontend | https://job-portal-rose-pi.vercel.app/ |
+| ⚙️ Backend API | https://job-portal-backend-ob5t.onrender.com |
 
 ---
 
 ## ✨ Features
 
-| Feature Category | Functionality |
-|------------------|--------------|
+| Category | Functionality |
+|-----------|--------------|
 | 🔐 Authentication | JWT-based Login & Registration |
 | 👥 Role Management | Role-Based Access Control (Job Seeker & Recruiter) |
 | 💼 Job Management | Create, Update, Delete, and Manage Job Listings |
-| 🔎 Job Search | Search and Filter Jobs by Keywords and Categories |
-| 📄 Resume Management | Upload, View, and Manage Resumes |
-| ☁️ Cloud Storage | Cloudinary Integration for Resume & Logo Storage |
-| 🏢 Company Profiles | Create and Manage Company Information |
-| 📝 Job Applications | Apply for Jobs and Track Application Status |
-| 📊 Recruiter Dashboard | Manage Jobs, Applicants, and Hiring Activities |
-| 👨‍💻 Candidate Dashboard | View Applied Jobs and Profile Information |
-| 🔒 Security | Password Hashing with bcrypt.js and Protected Routes |
-| 🔗 REST APIs | Scalable Backend APIs using Express.js and MongoDB |
-| 📱 Responsive Design | Mobile-Friendly UI using React.js and Tailwind CSS |
-| ⚡ State Management | Centralized State Management using Redux Toolkit |
-| 🚀 Deployment Ready | MongoDB Atlas, Cloudinary, Vercel, and Render Support |
+| 🔎 Job Search | Search and Filter Jobs |
+| 📄 Resume Management | Upload and Manage Resumes |
+| ☁️ Cloud Storage | Cloudinary Integration |
+| 🏢 Company Profiles | Company Registration & Management |
+| 📝 Applications | Apply for Jobs and Track Status |
+| 📊 Recruiter Dashboard | Manage Jobs and Applicants |
+| 👨‍💻 Candidate Dashboard | Manage Profile and Applications |
+| 🔗 REST APIs | Express.js + MongoDB APIs |
+| 📱 Responsive Design | Mobile-Friendly User Interface |
+| ⚡ State Management | Redux Toolkit |
+| 🚀 Deployment | Vercel + Render + MongoDB Atlas |
 
 ---
 
@@ -42,18 +50,17 @@ CareerConnect streamlines the hiring process by enabling recruiters to post and 
 - React Router DOM
 - Axios
 - Tailwind CSS
-- Framer Motion
 
 ### Backend
 - Node.js
 - Express.js
 - JWT Authentication
 - bcrypt.js
-- RESTful APIs
+- REST APIs
 
 ### Database
 - MongoDB
-- Mongoose ODM
+- Mongoose
 
 ### Cloud & Deployment
 - Cloudinary
@@ -63,78 +70,55 @@ CareerConnect streamlines the hiring process by enabling recruiters to post and 
 
 ---
 
+## 🔑 Core Modules
+
+### 👨‍💻 Job Seeker
+- Register & Login
+- Search Jobs
+- Apply for Jobs
+- Upload Resume
+- Track Applications
+- Manage Profile
+
+### 🏢 Recruiter
+- Company Management
+- Post Jobs
+- Manage Jobs
+- View Applicants
+- Track Applications
+
+### 🔐 Authentication
+- JWT Authentication
+- Protected Routes
+- Role-Based Access Control (RBAC)
+
+### ☁️ File Management
+- Resume Upload
+- Company Logo Upload
+- Cloudinary Storage
+
+---
+
 ## 📂 Project Structure
 
 ```bash
 CareerConnect/
 │
 ├── client/
-│   ├── public/
 │   ├── src/
-│   │   ├── api/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── routes/
-│   │   ├── store/
-│   │   └── utils/
+│   ├── public/
+│   └── package.json
 │
 ├── server/
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── uploads/
-│   └── server.js
+│   ├── Controllers/
+│   ├── Router/
+│   ├── Models/
+│   ├── Middlewares/
+│   ├── Utils/
+│   └── index.js
 │
 └── README.md
 ```
-
----
-
-## 🔑 Core Modules
-
-### 👨‍💻 Job Seeker Module
-- Register and Login
-- Browse Available Jobs
-- Search & Filter Jobs
-- Apply for Jobs
-- Upload Resume
-- Track Applications
-- Manage Profile
-
-### 🏢 Recruiter Module
-- Register and Login
-- Create Company Profile
-- Post Jobs
-- Edit/Delete Jobs
-- View Applicants
-- Manage Applications
-- Recruiter Dashboard
-
-### 🔐 Authentication Module
-- JWT Authentication
-- Role-Based Access Control (RBAC)
-- Protected Routes
-- Password Encryption using bcrypt.js
-
-### ☁️ File Management Module
-- Resume Upload
-- Company Logo Upload
-- Cloudinary Integration
-- Secure Cloud Storage
-
----
-
-## 📊 Database Collections
-
-| Collection | Description |
-|------------|------------|
-| Users | Stores candidate and recruiter accounts |
-| Companies | Stores recruiter company details |
-| Jobs | Stores job listings |
-| Applications | Stores candidate applications |
-| Resumes | Stores uploaded resume information |
 
 ---
 
@@ -143,21 +127,21 @@ CareerConnect/
 ### Clone Repository
 
 ```bash
-git clone https://github.com/Prinsikapuriyas25/careerconnect.git
-cd careerconnect
+git clone https://github.com/Prinsikapuriya25/Job_Portal.git
+cd Job_Portal
 ```
 
 ### Install Frontend Dependencies
 
 ```bash
-cd client
+cd frontend
 npm install
 ```
 
 ### Install Backend Dependencies
 
 ```bash
-cd server
+cd backend
 npm install
 ```
 
@@ -165,115 +149,74 @@ npm install
 
 ## ⚙️ Environment Variables
 
-Create a `.env` file inside the `server` directory.
+Create a `.env` file inside the backend folder.
 
 ```env
-PORT=5000
+PORT=8000
 
 MONGO_URI=your_mongodb_connection_string
 
-JWT_SECRET=your_jwt_secret
+SECRET_KEY=your_jwt_secret_key
 
-CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUD_NAME=your_cloud_name
 
-CLOUDINARY_API_KEY=your_api_key
+API_KEY=your_api_key
 
-CLOUDINARY_API_SECRET=your_api_secret
+API_SECRET=your_api_secret
 ```
 
 ---
 
-## ▶️ Run the Application
+## ▶️ Run Locally
 
 ### Start Backend
 
 ```bash
-cd server
+cd backend
 npm run dev
 ```
 
 ### Start Frontend
 
 ```bash
-cd client
+cd frontend
 npm run dev
 ```
-
----
-
-## 📈 API Highlights
-
-### Authentication APIs
-- POST `/api/auth/register`
-- POST `/api/auth/login`
-- GET `/api/auth/profile`
-
-### Job APIs
-- GET `/api/jobs`
-- POST `/api/jobs`
-- PUT `/api/jobs/:id`
-- DELETE `/api/jobs/:id`
-
-### Application APIs
-- POST `/api/applications/apply`
-- GET `/api/applications`
-- GET `/api/applications/:id`
-
-### Company APIs
-- POST `/api/company`
-- GET `/api/company`
-- PUT `/api/company/:id`
 
 ---
 
 ## 🔒 Security Features
 
 - JWT Authentication
-- Protected Routes
 - Role-Based Access Control (RBAC)
 - Password Hashing using bcrypt.js
-- Input Validation
+- Protected Routes
 - Secure File Upload Handling
 
 ---
 
-## 📸 Key Highlights
+## 📸 Highlights
 
-✅ Full-Stack MERN Architecture
+✅ MERN Stack Architecture
 
-✅ JWT Authentication & Authorization
+✅ JWT Authentication
 
 ✅ Role-Based Access Control (RBAC)
 
-✅ Cloudinary File Storage
+✅ Cloudinary Integration
 
-✅ Resume Upload & Management
+✅ Resume Upload System
 
-✅ Recruiter & Candidate Dashboards
+✅ Recruiter Dashboard
+
+✅ Candidate Dashboard
 
 ✅ Redux Toolkit State Management
 
-✅ RESTful API Architecture
+✅ RESTful APIs
 
-✅ Responsive UI Design
-
-✅ Production-Ready Project Structure
+✅ Responsive Design
 
 ---
 
-## 🎯 Future Enhancements
-
-- AI-Based Resume Screening
-- Email Notifications
-- Interview Scheduling
-- Real-Time Chat System
-- Job Recommendation Engine
-- Advanced Analytics Dashboard
-
----
-
-
-
----
-
-### Made with ❤️ using MERN Stack
+### Made with ❤️ using React.js, Node.js, Express.js & MongoDB
